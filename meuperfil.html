@@ -21,7 +21,7 @@
                 <p id="profileAge">Idade: 18</p>
                 <h5>Hobbies:</h5>
                 <ul id="hobbiesList" class="list-group mb-3">
-                    <li class="list-group-item">Leitura</li>
+                    <li class="list-group-item">Leitura</li> 
                     <li class="list-group-item">Esportes</li>
                     <li class="list-group-item">Música</li>
                 </ul>
@@ -33,52 +33,52 @@
         </div>
     </div>
     <script>
-        // Função para alterar o nome do perfil
-        function alterarNome() {
-            const novoNome = prompt("Digite o novo nome:");
-            if (novoNome) {
-                document.getElementById("profileName").textContent = "Nome: " + novoNome;
-            }
+    // Função para alterar o nome do perfil
+    function alterarNome() { // define a função
+        const novoNome = prompt("Digite o novo nome:"); // cria uma constante para armazenar o nome inserido pelo usuário
+        if (novoNome) { // verifica se o usuário digitou algo no prompt
+            document.getElementById("profileName").textContent = "Nome: " + novoNome; // atualiza o texto do elemento com o ID 'profileName'
         }
+    }
 
-        // Função para adicionar um novo hobby
-        function adicionarHobby() {
-            const novoHobby = prompt("Digite um novo hobby:");
-            if (novoHobby) {
-                const li = document.createElement("li");
-                li.textContent = novoHobby;
-                li.className = "list-group-item";
-                li.onclick = function () { removerHobby(li); }; // Adiciona o evento de remoção
-                document.getElementById("hobbiesList").appendChild(li);
-            }
+    // Função para adicionar um novo hobby
+    function adicionarHobby() { 
+        const novoHobby = prompt("Digite um novo hobby:"); // cria uma constante para armazenar o novo hobby inserido pelo usuário
+        if (novoHobby) { // verifica se o usuário digitou algo no prompt
+            const li = document.createElement("li"); // cria um novo elemento <li> (item da lista)
+            li.textContent = novoHobby; // define o texto do <li> com o hobby inserido
+            li.className = "list-group-item"; // aplica a classe CSS para estilo do item da lista
+            li.onclick = function () { removerHobby(li); }; // adiciona um evento de clique para remover o hobby
+            document.getElementById("hobbiesList").appendChild(li); // adiciona o novo item na lista de hobbies
         }
+    }
 
-        // Função para remover um hobby ao clicar
-        function removerHobby(elemento) {
-            elemento.remove();
-        }
+    // Função para remover um hobby ao clicar
+    function removerHobby(elemento) { // define a função para remover um elemento
+        elemento.remove(); // remove o elemento clicado da lista
+    }
 
-        // Função para mudar a cor de fundo do card
-        function mudarCorDeFundo() {
-            const cores = ["#f8d7da", "#d1ecf1", "#d4edda", "#ffb3cd", "#cce5ff"];
-            const corAleatoria = cores[Math.floor(Math.random() * cores.length)];
-            document.getElementById("profileCard").style.backgroundColor = corAleatoria;
-        }
+    // Função para mudar a cor de fundo do card
+    function mudarCorDeFundo() { 
+        const cores = ["#f8d7da", "#d1ecf1", "#d4edda", "#ffb3cd", "#cce5ff"]; // define uma lista de cores possíveis
+        const corAleatoria = cores[Math.floor(Math.random() * cores.length)]; // escolhe uma cor aleatória da lista
+        document.getElementById("profileCard").style.backgroundColor = corAleatoria; // aplica a cor escolhida ao fundo do card
+    }
     
-        // Função para alterar a imagem através de um link inserido pelo usuário
-        function alterarImagem() {
-            const novoLink = prompt("Digite o URL da nova imagem:");
-            if (novoLink) {
-                document.getElementById("profileImage").src = novoLink;
-            }
+    // Função para alterar a imagem através de um link inserido pelo usuário
+    function alterarImagem() { 
+        const novoLink = prompt("Digite o URL da nova imagem:"); // cria uma const para armazenar o URL inserido pelo usuário
+        if (novoLink) { // se o usuário digitou algo no prompt
+            document.getElementById("profileImage").src = novoLink; // atualiza a imagem com o novo URL
         }
+    }
 
-        // Adiciona a funcionalidade de clique aos hobbies existentes
-        document.querySelectorAll("#hobbiesList .list-group-item").forEach(item => {
-            item.onclick = function () {
-                removerHobby(item);
-            };
-        });
-    </script>
+    // Adiciona a funcionalidade de clique aos hobbies existentes
+    document.querySelectorAll("#hobbiesList .list-group-item").forEach(item => { // seleciona todos os itens da lista de hobbies
+        item.onclick = function () { // realiza a função a cada click
+            removerHobby(item); // chama a função para remover o item clicado
+        };
+    });
+</script>
 </body>
 </html>
